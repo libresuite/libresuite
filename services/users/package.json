@@ -1,5 +1,5 @@
 {
-  "name": "@libresuite/secrets",
+  "name": "@libresuite/users",
   "main": "dist/server.js",
   "types": "dist/server.d.ts",
   "scripts": {
