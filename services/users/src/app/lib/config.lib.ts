@@ -1,7 +1,6 @@
 import Env from "@libresuite/env";
 import { express, logger, notFound } from "@libresuite/middlewares";
 import type { ServiceConfig } from "@libresuite/types";
-import usersRouter from "@/routes/users";
 
 type EnvSchema = {
   NAME: string;
@@ -20,7 +19,7 @@ const config: ServiceConfig = {
     pre: [express],
     post: [logger, notFound],
   },
-  routes: [{ path: "/users", router: usersRouter }],
+  routes: [],
   kafkaBrokers: env.get("KAFKA_BROKERS", "string").split(","),
 };
 
