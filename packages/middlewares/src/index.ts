@@ -1,6 +1,6 @@
-import express from "./express";
-import logger from "./logger";
-import methodNotAllowed from "./method-not-allowed";
-import notFound from "./not-found";
+import ExpressMiddleware from "./express";
+import LoggerMiddleware from "./logger";
+import MethodNotAllowedMiddleware from "./method-not-allowed";
+import NotFoundMiddleware from "./not-found";
 
-export { express, logger, methodNotAllowed, notFound };
+export { ExpressMiddleware, LoggerMiddleware, MethodNotAllowedMiddleware, NotFoundMiddleware };
