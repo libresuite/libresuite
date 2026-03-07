@@ -15,6 +15,7 @@ WORKDIR /app
 
 COPY services/users/ ./services/users/
 
+RUN pnpm --filter "@libresuite/users" db:generate
 RUN pnpm --filter "@libresuite/users" run build
 
 FROM builder AS development
@@ -23,4 +24,4 @@ WORKDIR /app
 
 EXPOSE 4001
 
-CMD ["pnpm", "--filter", "@libresuite/users", "dev"]
+CMD ["sh", "-c", "pnpm --filter '@libresuite/users' db:migrate:deploy && pnpm --filter '@libresuite/users' dev"]
