@@ -6,7 +6,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/app/*"],
-      "@/app": ["./src/app"]
+      "@/app": ["./src/app"],
+      "@/generated/*": ["./src/generated/*"]
     }
   },
   "include": ["src/**/*.ts"],

@@ -1,7 +1,5 @@
 import Env from "@libresuite/env";
-import { express, logger, notFound } from "@libresuite/middlewares";
 import type { GatewayConfig } from "@libresuite/types";
-import cors from "cors";
 
 type EnvSchema = {
   NAME: string;
@@ -37,11 +35,6 @@ const config: GatewayConfig = {
       route: env.get("SECRETS_SERVICE_ROUTE", "string"),
     },
   ],
-  middlewares: {
-    pre: [express, { name: "cors", body: cors() }],
-    post: [logger, notFound],
-  },
-  routes: [],
   proxyOptions: {
     changeOrigin: true,
     timeout: 5000,

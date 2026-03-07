@@ -77,6 +77,24 @@ services:
       CHOKIDAR_USEPOLLING: "true"
     restart: unless-stopped
 
+  users-db:
+    container_name: users-db
+    image: postgres:17-alpine
+    ports:
+      - "${USERS_DB_PORT:-5432}:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: users
+    volumes:
+      - users-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d users"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
   users:
     container_name: users
     build:
@@ -92,8 +110,11 @@ services:
     environment:
       NODE_ENV: development
       CHOKIDAR_USEPOLLING: "true"
+      DATABASE_URL: postgresql://postgres:postgres@users-db:5432/users
     depends_on:
       kafka:
+        condition: service_healthy
+      users-db:
         condition: service_healthy
     restart: unless-stopped
 
@@ -116,3 +137,6 @@ services:
       kafka:
         condition: service_healthy
     restart: unless-stopped
+
+volumes:
+  users-db-data:
