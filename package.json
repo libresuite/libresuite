@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "turbo run build",
-    "check": "biome check",
+    "check": "biome check --write --unsafe",
     "clean": "rimraf {.,./apps/*,./packages/*,./services/*}/{dist,.next,.turbo,tsconfig.tsbuildinfo}",
     "clean:all": "rimraf {.,./apps/*,./packages/*,./services/*}/{dist,.next,.turbo,node_modules}",
     "dev": "turbo run dev --parallel",
