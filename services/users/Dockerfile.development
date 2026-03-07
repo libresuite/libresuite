@@ -1,0 +1,26 @@
+FROM libresuite-dev-base AS deps
+
+FROM deps AS packages
+
+WORKDIR /app
+
+COPY turbo.json ./
+COPY packages/ ./packages/
+
+RUN pnpm turbo run build --filter="@libresuite/users^..."
+
+FROM packages AS builder
+
+WORKDIR /app
+
+COPY services/users/ ./services/users/
+
+RUN pnpm --filter "@libresuite/users" run build
+
+FROM builder AS development
+
+WORKDIR /app
+
+EXPOSE 4001
+
+CMD ["pnpm", "--filter", "@libresuite/users", "dev"]
