@@ -1,0 +1,18 @@
+{
+  "name": "@libresuite/types",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p . && tsc-alias",
+    "build:watch": "concurrently \"tsc --watch --preserveWatchOutput -p .\" \"tsc-alias --watch\"",
+    "dev": "pnpm --filter @libresuite/types build:watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@libresuite/tsconfig": "workspace:*",
+    "@types/express": "^5.0.6",
+    "concurrently": "^9.2.1",
+    "tsc-alias": "^1.8.16",
+    "typescript": "^5.9.3"
+  }
+}

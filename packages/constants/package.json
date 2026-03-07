@@ -1,0 +1,15 @@
+{
+  "name": "@libresuite/constants",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p .",
+    "build:watch": "tsc --watch --preserveWatchOutput -p .",
+    "dev": "pnpm --filter @libresuite/constants build:watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@libresuite/tsconfig": "workspace:*",
+    "typescript": "^5.9.3"
+  }
+}

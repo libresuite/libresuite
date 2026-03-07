@@ -1,0 +1,12 @@
+FROM libresuite-dev-base AS deps
+
+FROM deps AS development
+
+WORKDIR /app
+
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV HOSTNAME=0.0.0.0
+
+EXPOSE 3000
+
+CMD ["pnpm", "--filter", "@libresuite/web", "dev"]

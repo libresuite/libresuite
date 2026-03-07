@@ -1,0 +1,55 @@
+name: libresuite-development
+
+services:
+  web:
+    container_name: web
+    build:
+      context: ../../..
+      dockerfile: apps/web/Dockerfile.development
+      target: development
+    ports:
+      - "${WEB_PORT:-3000}:3000"
+    volumes:
+      - ../../../apps/web/src:/app/apps/web/src
+      - ../../../apps/web/public:/app/apps/web/public
+      - ../../../apps/web/next.config.ts:/app/apps/web/next.config.ts
+      - ../../../apps/web/postcss.config.mjs:/app/apps/web/postcss.config.mjs
+    environment:
+      NODE_ENV: development
+      NEXT_TELEMETRY_DISABLED: "1"
+      CHOKIDAR_USEPOLLING: "true"
+    restart: unless-stopped
+
+  gateway:
+    container_name: gateway
+    build:
+      context: ../../..
+      dockerfile: apps/gateway/Dockerfile.development
+      target: development
+    ports:
+      - "${GATEWAY_PORT:-4000}:4000"
+    volumes:
+      - ../../../apps/gateway/src:/app/apps/gateway/src
+    env_file:
+      - ../../../apps/gateway/.env.development
+    environment:
+      NODE_ENV: development
+      CHOKIDAR_USEPOLLING: "true"
+    restart: unless-stopped
+
+  secrets:
+    container_name: secrets
+    build:
+      context: ../../..
+      dockerfile: services/secrets/Dockerfile.development
+      target: development
+    ports:
+      - "${SECRETS_PORT:-4001}:4001"
+    volumes:
+      - ../../../services/secrets/src:/app/services/secrets/src
+    env_file:
+      - ../../../services/secrets/.env.development
+    environment:
+      NODE_ENV: development
+      CHOKIDAR_USEPOLLING: "true"
+    restart: unless-stopped

@@ -1,0 +1,22 @@
+{
+  "name": "@libresuite/utils",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p .",
+    "build:watch": "tsc --watch --preserveWatchOutput -p .",
+    "dev": "pnpm --filter @libresuite/utils build:watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@libresuite/logger": "workspace:*",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@libresuite/constants": "workspace:*",
+    "@libresuite/tsconfig": "workspace:*",
+    "@libresuite/types": "workspace:*",
+    "@types/express": "^5.0.6",
+    "typescript": "^5.9.3"
+  }
+}

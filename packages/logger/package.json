@@ -1,0 +1,22 @@
+{
+  "name": "@libresuite/logger",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p . && tsc-alias",
+    "build:watch": "concurrently \"tsc --watch --preserveWatchOutput -p .\" \"tsc-alias --watch\"",
+    "dev": "pnpm --filter @libresuite/logger build:watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "chalk": "4.1.2",
+    "date-fns": "^4.1.0"
+  },
+  "devDependencies": {
+    "@libresuite/tsconfig": "workspace:*",
+    "@types/node": "^25.3.5",
+    "concurrently": "^9.2.1",
+    "tsc-alias": "^1.8.16",
+    "typescript": "^5.9.3"
+  }
+}

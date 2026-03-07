@@ -1,0 +1,21 @@
+# Node Modules
+**/node_modules/
+
+# Environment Variables
+**/.env*
+!**/.env.example
+
+# TypeScript
+**/dist/
+**/*.tsbuildinfo
+
+# Next.js
+**/.next/
+**/out/
+**/next-env.d.ts
+
+# Turbo
+**/.turbo/
+
+# JetBrains IDEs
+**/.idea/
