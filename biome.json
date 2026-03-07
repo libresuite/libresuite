@@ -67,7 +67,17 @@
         "organizeImports": {
           "level": "on",
           "options": {
-            "groups": [":PATH:", ":URL:", ":NODE:", ":PACKAGE:", ":ALIAS:", ":URL:"],
+            "groups": [
+              [":NODE:"],
+              ":BLANK_LINE:",
+              [":PACKAGE:"],
+              ":BLANK_LINE:",
+              ["@libresuite/**"],
+              ":BLANK_LINE:",
+              ["@/**"],
+              ":BLANK_LINE:",
+              [":PATH:"]
+            ],
             "identifierOrder": "lexicographic"
           }
         }
