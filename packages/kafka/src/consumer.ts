@@ -1,6 +1,7 @@
 import type { Consumer } from "kafkajs";
-import type { ConsumerConfig, MessageHandler } from "@/types";
+
 import { getKafkaClient } from "@/client";
+import type { ConsumerConfig, MessageHandler } from "@/types";
 
 async function ensureTopicsExist(topics: string[]): Promise<void> {
   const kafka = getKafkaClient();

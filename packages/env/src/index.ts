@@ -1,5 +1,7 @@
 import path from "node:path";
+
 import dotenv from "dotenv";
+
 import type { EnvLoadOptions, EnvSchema } from "@/types";
 
 class Env<T extends EnvSchema> {

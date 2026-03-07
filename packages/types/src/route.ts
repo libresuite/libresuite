@@ -1,5 +1,6 @@
-import type Middleware from "./middleware";
 import type { Router } from "express";
+
+import type Middleware from "./middleware";
 
 type Route = {
   path: string;

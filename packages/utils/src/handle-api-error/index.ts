@@ -1,7 +1,8 @@
-import returnApiResponse from "../return-api-response";
 import { ERROR_MESSAGES } from "@libresuite/constants";
 import { type ApiError, type ApiResponse, GenericError } from "@libresuite/types";
 import type { Response } from "express";
+
+import returnApiResponse from "../return-api-response";
 
 async function handleApiError(
   error: unknown,

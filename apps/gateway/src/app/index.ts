@@ -1,5 +1,6 @@
 import { register } from "@libresuite/utils";
 import express, { type Application } from "express";
+
 import { config } from "@/lib";
 import { createServiceProxy } from "@/utils";
 

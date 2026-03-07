@@ -1,4 +1,5 @@
 import { Kafka } from "kafkajs";
+
 import type { KafkaClientConfig } from "@/types";
 
 let instance: Kafka | null = null;

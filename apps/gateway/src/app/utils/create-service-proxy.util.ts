@@ -2,6 +2,7 @@ import logger from "@libresuite/logger";
 import type { Service } from "@libresuite/types";
 import { GenericError } from "@libresuite/types";
 import { createProxyMiddleware } from "http-proxy-middleware";
+
 import { config } from "@/lib";
 
 function createServiceProxy(service: Service) {

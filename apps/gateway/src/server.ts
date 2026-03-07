@@ -1,5 +1,6 @@
 import Env from "@libresuite/env";
 import Logger from "@libresuite/logger";
+
 import app from "@/app";
 
 const env = new Env();

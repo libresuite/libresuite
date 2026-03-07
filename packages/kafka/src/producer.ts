@@ -1,6 +1,7 @@
 import type { Producer } from "kafkajs";
-import type { ProducerMessage } from "@/types";
+
 import { getKafkaClient } from "@/client";
+import type { ProducerMessage } from "@/types";
 
 let producer: Producer | null = null;
 

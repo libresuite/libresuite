@@ -1,4 +1,4 @@
 export { createKafkaClient, getKafkaClient } from "@/client";
-export { publish, disconnectProducer } from "@/producer";
 export { createConsumer } from "@/consumer";
-export type { KafkaClientConfig, ProducerMessage, ConsumerConfig, MessageHandler } from "@/types";
+export { disconnectProducer, publish } from "@/producer";
+export type { ConsumerConfig, KafkaClientConfig, MessageHandler, ProducerMessage } from "@/types";
